@@ -1,12 +1,16 @@
-package com.brioal.commonjava.bean;
+package com.brioal.commonjava;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 
-import java.beans.Transient;
+import javax.persistence.*;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 
