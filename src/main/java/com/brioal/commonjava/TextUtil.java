@@ -10,6 +10,85 @@ package com.brioal.commonjava;
 public class TextUtil {
 
     /**
+     * 进行toString操作，若为空，返回默认值
+     *
+     * @param object
+     * 				要进行toString操作的对象
+     * @param nullStr
+     * 				返回的默认值
+     * @return
+     */
+    public static String toString(Object object,String nullStr){
+        return object == null ? nullStr : object.toString();
+    }
+
+    /**
+     * 将某个字符重复N次
+     *
+     * @param ch
+     * 			需要循环的字符
+     * @param count
+     * 			循环的次数
+     * @return
+     */
+    public static String repeatChar(char ch, int count) {
+        char[] buf = new char[count];
+        for (int i = count - 1; i >= 0; i--) {
+            buf[i] = ch;
+        }
+        return new String(buf);
+    }
+
+    /**
+     * 判断字符串是否全部都为小写
+     *
+     * @param value
+     * 				待判断的字符串
+     * @return
+     */
+    public static boolean isAllLowerCase(String value){
+        if(value == null || "".equals(value)){
+            return false;
+        }
+        for (int i = 0; i < value.length(); i++) {
+            if (Character.isLowerCase(value.charAt(i)) == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 判断字符串是否全部大写
+     *
+     * @param value 待判断的字符串
+     * @return
+     */
+    public static boolean isAllUpperCase(String value){
+        if(value == null || "".equals(value)){
+            return false;
+        }
+        for (int i = 0; i < value.length(); i++) {
+            if (Character.isUpperCase(value.charAt(i)) == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 反转字符串
+     *
+     * @param value 待反转的字符串
+     */
+    public static String reverse(String value) {
+        if (value == null) {
+            return null;
+        }
+        return new StringBuffer(value).reverse().toString();
+    }
+
+    /**
      * 判断字符串是否可用
      *
      * @param str
@@ -156,5 +235,9 @@ public class TextUtil {
             return true;
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(TextUtil.reverse("text"));
     }
 }
